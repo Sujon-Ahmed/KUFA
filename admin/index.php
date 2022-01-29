@@ -1,4 +1,5 @@
 <?php 
+$page = "dashboard";
 require "admin_header.php"
 ?>
 <main id="main" class="main">
