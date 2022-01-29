@@ -20,10 +20,13 @@
   <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
   <script src="assets/vendor/tinymce/tinymce.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
-
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <!-- toastr js cdn link -->
   <script src="assets/js/toastr.min.js"></script>
+  <!-- summernote js cdn link -->
+  <script src="summernote/summernote-bs4.min.js"></script>
+  <!-- toastr message -->
   <?php if (isset($_SESSION['msg']['success'])) { ?>
     <script>
         toastr.success("<?= Flash_data::show_error() ?>");
@@ -34,6 +37,21 @@
         toastr.error("<?= Flash_data::show_error() ?>");
     </script>
   <?php } ?>
+  <!-- summernote script -->
+  <script>
+    // $('#banner_desc').summernote({
+    //   placeholder: 'Write Your Description Here...',
+    //   tabsize: 2,
+    //   height:250
+    // });
+    $(document).ready(function() {
+      $('#banner_desc').summernote({
+        placeholder: 'Write Your Banner Description Here...',
+        tabsize: 2,
+        height: 200
+      });
+    });
+  </script>
 
 </body>
 

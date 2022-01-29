@@ -35,6 +35,7 @@ $after_assoc_user = mysqli_fetch_assoc($select_users_result);
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/toastr.css">
+  <link rel="stylesheet" href="summernote/summernote-bs4.min.css">
 
   <!-- =======================================================
   * Template Name: NiceAdmin - v2.2.0
