@@ -321,6 +321,16 @@ $after_assoc_user = mysqli_fetch_assoc($select_users_result);
               <i class="bi bi-circle"></i><span>View About</span>
             </a>
           </li>
+          <li>
+            <a href="add_skill.php">
+              <i class="bi bi-circle"></i><span>Add Skill</span>
+            </a>
+          </li>
+          <li>
+            <a href="view_skill.php">
+              <i class="bi bi-circle"></i><span>View Skill</span>
+            </a>
+          </li>
         </ul>
       </li>
       <!-- End banner Nav -->
