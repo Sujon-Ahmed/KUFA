@@ -1,6 +1,6 @@
 <?php 
 $page = "banners";
-$sub_page = "add_banner.php";
+$sub_page = "banner.php";
 require "admin_header.php"
 ?>
 <main id="main" class="main">
@@ -9,7 +9,7 @@ require "admin_header.php"
         <nav>
             <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-            <li class="breadcrumb-item active">Banners</li>
+            <li class="breadcrumb-item">Banners</li>
             <li class="breadcrumb-item active">Add-Banner</li>
             </ol>
         </nav>

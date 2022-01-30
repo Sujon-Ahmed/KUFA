@@ -1,6 +1,9 @@
 <?php 
 $page = "dashboard";
-require "admin_header.php"
+require "admin_header.php";
+if (!isset($_SESSION['user_id'])) {
+  header('location:login.php');
+}
 ?>
 <main id="main" class="main">
   <div class="pagetitle">

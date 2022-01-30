@@ -34,15 +34,12 @@ $after_assoc_user = mysqli_fetch_assoc($select_users_result);
   <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+  <!-- toastr css cdn liink -->
   <link rel="stylesheet" href="assets/css/toastr.css">
+  <!-- summernote cdn link -->
   <link rel="stylesheet" href="summernote/summernote-bs4.min.css">
-
-  <!-- =======================================================
-  * Template Name: NiceAdmin - v2.2.0
-  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+  <!-- dataTable cdn link -->
+  <link rel="stylesheet" href="dataTable/dataTables.bootstrap4.min.css">
 </head>
 <body>
   <!-- ======= Header ======= -->
@@ -291,13 +288,18 @@ $after_assoc_user = mysqli_fetch_assoc($select_users_result);
       </li><!-- End Dashboard Nav -->
 
       <li class="nav-item">
-        <a class="nav-link <?= ($page == "banners") ? '' : 'collapsed' ?>" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+        <a class="nav-link <?= ($page == "banners") ? '' : 'collapsed' ?>" data-bs-target="#banners-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-menu-button-wide"></i><span>Banners</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-        <ul id="components-nav" class="nav-content <?= ($sub_page == "add_banner.php") ? '' : 'collapse' ?> " data-bs-parent="#sidebar-nav">
+        <ul id="banners-nav" class="nav-content <?= ($sub_page == "banner.php") ? '' : 'collapse' ?> " data-bs-parent="#sidebar-nav">
           <li>
             <a href="add_banner.php">
               <i class="bi bi-circle"></i><span>Add Banner</span>
+            </a>
+          </li>
+          <li>
+            <a href="view_banner.php">
+              <i class="bi bi-circle"></i><span>View Banner</span>
             </a>
           </li>
         </ul>

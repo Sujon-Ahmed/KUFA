@@ -12,6 +12,7 @@
 
   <!-- Vendor JS Files -->
   <script src="assets/js/jquery.js"></script>
+  <script src="dataTable/jquery-3.4.1.min.js"></script>
   <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/chart.js/chart.min.js"></script>
@@ -26,6 +27,9 @@
   <script src="assets/js/toastr.min.js"></script>
   <!-- summernote js cdn link -->
   <script src="summernote/summernote-bs4.min.js"></script>
+  <!-- dataTable cdn link -->
+  <script src="dataTable/jquery.dataTables.min.js"></script>
+  <script src="dataTable/dataTables.bootstrap4.min.js"></script>
   <!-- toastr message -->
   <?php if (isset($_SESSION['msg']['success'])) { ?>
     <script>
@@ -39,11 +43,6 @@
   <?php } ?>
   <!-- summernote script -->
   <script>
-    // $('#banner_desc').summernote({
-    //   placeholder: 'Write Your Description Here...',
-    //   tabsize: 2,
-    //   height:250
-    // });
     $(document).ready(function() {
       $('#banner_desc').summernote({
         placeholder: 'Write Your Banner Description Here...',
@@ -52,6 +51,12 @@
       });
     });
   </script>
+  <!-- dataTable for banners -->
+    <script>
+      $(document).ready(function(){
+        $('#banners').DataTable();
+      });
+    </script>
 
 </body>
 
