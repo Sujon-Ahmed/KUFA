@@ -30,6 +30,7 @@ $select_banners_result = mysqli_query($db_connection, $select_banners);
                             <th>Title</th>
                             <th>Image</th>
                             <th>Description</th>
+                            <th>Status</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -41,6 +42,13 @@ $select_banners_result = mysqli_query($db_connection, $select_banners);
                             <td><?= $banner['banner_title'] ?></td>
                             <td><img src="assets/uploads/banners/<?= $banner['banner_img'] ?>" width="100" class="img-fluid" alt=""></td>
                             <td><?= $banner['description'] ?></td>
+                            <td>
+                                <?php if ($banner['banner_status'] == 0){ ?>
+                                    <a href="banner_status_change.php?id=<?= $banner['banner_id'] ?>" class="btn btn-secondary btn-sm">Deactive</a>
+                                <?php } else { ?>
+                                    <a href="banner_status_change.php?id=<?= $banner['banner_id'] ?>" class="btn btn-primary btn-sm">active</a>
+                                <?php } ?>
+                            </td>
                             <td>
                                 <a title="Edit" href="edit_banner.php?banner_id=<?= $banner['banner_id'] ?>" class="btn btn-success btn-sm"><i class="bi bi-pencil-square"></i></a>
                                 <a title="Delete" onclick="javascript:return confirm('Are You Sure?')" href="delete_banner.php?banner_id=<?= $banner['banner_id'] ?>" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></a>
