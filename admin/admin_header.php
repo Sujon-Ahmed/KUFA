@@ -317,7 +317,7 @@ $after_assoc_user = mysqli_fetch_assoc($select_users_result);
             </a>
           </li>
           <li>
-            <a href="view_banner.php">
+            <a href="view_about.php">
               <i class="bi bi-circle"></i><span>View About</span>
             </a>
           </li>
