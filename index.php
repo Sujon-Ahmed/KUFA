@@ -1,3 +1,10 @@
+<?php
+require "admin/database.php";
+$select_banner = "SELECT * FROM `banners` WHERE `banner_status`=1";
+$select_banner_result = mysqli_query($db_connection, $select_banner);
+$after_assoc_banner = mysqli_fetch_assoc($select_banner_result);
+
+?>
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -120,9 +127,9 @@
                     <div class="row align-items-center">
                         <div class="col-xl-7 col-lg-6">
                             <div class="banner-content">
-                                <h6 class="wow fadeInUp" data-wow-delay="0.2s">HELLO!</h6>
-                                <h2 class="wow fadeInUp" data-wow-delay="0.4s">I am Will Smith</h2>
-                                <p class="wow fadeInUp" data-wow-delay="0.6s">I'm Will Smith, professional web developer with long time experience in this field​.</p>
+                                <h6 class="wow fadeInUp" data-wow-delay="0.2s"><?= $after_assoc_banner['banner_sub_title'] ?></h6>
+                                <h2 class="wow fadeInUp" data-wow-delay="0.4s"><?= $after_assoc_banner['banner_title'] ?></h2>
+                                <p class="wow fadeInUp" data-wow-delay="0.6s"><?= $after_assoc_banner['description'] ?></p>
                                 <div class="banner-social wow fadeInUp" data-wow-delay="0.8s">
                                     <ul>
                                         <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
@@ -136,7 +143,7 @@
                         </div>
                         <div class="col-xl-5 col-lg-6 d-none d-lg-block">
                             <div class="banner-img text-right">
-                                <img src="img/banner/banner_img.png" alt="">
+                                <img src="admin/assets/uploads/banners/<?= $after_assoc_banner['banner_img'] ?>" alt="">
                             </div>
                         </div>
                     </div>
