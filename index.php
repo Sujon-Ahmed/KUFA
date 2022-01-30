@@ -1,8 +1,13 @@
 <?php
 require "admin/database.php";
+// banner section information query
 $select_banner = "SELECT * FROM `banners` WHERE `banner_status`=1";
 $select_banner_result = mysqli_query($db_connection, $select_banner);
 $after_assoc_banner = mysqli_fetch_assoc($select_banner_result);
+// about section information query
+$select_about = "SELECT * FROM `abouts` WHERE `about_status`=1";
+$select_about_result = mysqli_query($db_connection, $select_about);
+$after_assoc_about = mysqli_fetch_assoc($select_about_result);
 
 ?>
 <!doctype html>
@@ -158,18 +163,16 @@ $after_assoc_banner = mysqli_fetch_assoc($select_banner_result);
                     <div class="row align-items-center">
                         <div class="col-lg-6">
                             <div class="about-img">
-                                <img src="img/banner/banner_img2.png" title="me-01" alt="me-01">
+                                <img src="admin/assets/uploads/abouts/<?= $after_assoc_about['about_image'] ?>" title="me-01" alt="me-01">
                             </div>
                         </div>
                         <div class="col-lg-6 pr-90">
                             <div class="section-title mb-25">
-                                <span>Introduction</span>
-                                <h2>About Me</h2>
+                                <span><?= $after_assoc_about['about_sub_title'] ?></span>
+                                <h2><?= $after_assoc_about['about_title'] ?></h2>
                             </div>
                             <div class="about-content">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum, sed repudiandae odit deserunt, quas
-                                    quibusdam necessitatibus nesciunt eligendi esse sit non reprehenderit quisquam asperiores maxime
-                                    blanditiis culpa vitae velit. Numquam!</p>
+                                <p><?= $after_assoc_about['about_description'] ?></p>
                                 <h3>Education:</h3>
                             </div>
                             <!-- Education Item -->

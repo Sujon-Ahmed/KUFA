@@ -40,7 +40,7 @@ $select_abouts_result = mysqli_query($db_connection, $select_abouts);
                             <td><?= $about['about_id'] ?></td>
                             <td><?= $about['about_sub_title'] ?></td>
                             <td><?= $about['about_title'] ?></td>
-                            <td><img src="assets/uploads/abouts/<?= $about['about_img'] ?>" width="100" class="img-fluid" alt=""></td>
+                            <td><img src="assets/uploads/abouts/<?= $about['about_image'] ?>" width="100" class="img-fluid" alt=""></td>
                             <td><?= $about['about_description'] ?></td>
                             <td>
                                 <?php if ($about['about_status'] == 0){ ?>
@@ -50,7 +50,7 @@ $select_abouts_result = mysqli_query($db_connection, $select_abouts);
                                 <?php } ?>
                             </td>
                             <td>
-                                <a title="Edit" href="edit_banner.php?about_id=<?= $about['about_id'] ?>" class="btn btn-success btn-sm"><i class="bi bi-pencil-square"></i></a>
+                                <a title="Edit" href="edit_about.php?about_id=<?= $about['about_id'] ?>" class="btn btn-success btn-sm"><i class="bi bi-pencil-square"></i></a>
                                 <a title="Delete" onclick="javascript:return confirm('Are You Sure?')" href="delete_banner.php?about_id=<?= $about['about_id'] ?>" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></a>
                             </td>
                         </tr>
