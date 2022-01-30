@@ -42,7 +42,7 @@ $select_banners_result = mysqli_query($db_connection, $select_banners);
                             <td><img src="assets/uploads/banners/<?= $banner['banner_img'] ?>" width="100" class="img-fluid" alt=""></td>
                             <td><?= $banner['description'] ?></td>
                             <td>
-                                <a title="Edit" href="edit_banner.php?id=<?= $banner['banner_id'] ?>" class="btn btn-success btn-sm"><i class="bi bi-pencil-square"></i></a>
+                                <a title="Edit" href="edit_banner.php?banner_id=<?= $banner['banner_id'] ?>" class="btn btn-success btn-sm"><i class="bi bi-pencil-square"></i></a>
                                 <a title="Delete" onclick="javascript:return confirm('Are You Sure?')" href="delete_banner.php?banner_id=<?= $banner['banner_id'] ?>" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></a>
                             </td>
                         </tr>
