@@ -1,6 +1,6 @@
 <?php 
-$page = "banners";
-$sub_page = "banner";
+$page = "abouts";
+$sub_page = "about";
 require "admin_header.php"
 ?>
 <main id="main" class="main">
@@ -9,8 +9,8 @@ require "admin_header.php"
         <nav>
             <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-            <li class="breadcrumb-item">Banners</li>
-            <li class="breadcrumb-item active">Add-Banner</li>
+            <li class="breadcrumb-item">About</li>
+            <li class="breadcrumb-item active">Add-About</li>
             </ol>
         </nav>
     </div><!-- End Page Title -->
@@ -18,9 +18,9 @@ require "admin_header.php"
         <div class="row">
             <div class="col-lg-10 col-md-6">
                 <div class="card shadow-sm">
-                    <h4 class="card-header text-center">Add Banner</h4>
+                    <h4 class="card-header text-center">Add About</h4>
                     <div class="card-body">
-                        <form action="banner_post.php" method="POST" enctype="multipart/form-data">
+                        <form action="about_post.php" method="POST" enctype="multipart/form-data">
                             <!-- sub title felid -->
                             <div class="mt-2">
                                 <label for="sub_title" class="mb-1">Sub Title</label> 
@@ -33,8 +33,8 @@ require "admin_header.php"
                             </div>
                             <!-- image felid -->
                             <div class="mt-2">
-                                <label for="banner_image" class="mb-1">Image</label> 
-                                <input type="file" name="file" id="banner_image" class="form-control" oninput="pic.src=window.URL.createObjectURL(this.files[0])">
+                                <label for="about_image" class="mb-1">Image</label> 
+                                <input type="file" name="file" id="about_image" class="form-control" oninput="pic.src=window.URL.createObjectURL(this.files[0])">
                             </div>
                             <!-- image felid -->
                             <div class="mt-2">

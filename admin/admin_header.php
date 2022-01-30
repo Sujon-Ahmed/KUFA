@@ -286,12 +286,12 @@ $after_assoc_user = mysqli_fetch_assoc($select_users_result);
           <span>Dashboard</span>
         </a>
       </li><!-- End Dashboard Nav -->
-
+      <!-- banner navbar -->
       <li class="nav-item">
         <a class="nav-link <?= ($page == "banners") ? '' : 'collapsed' ?>" data-bs-target="#banners-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-menu-button-wide"></i><span>Banners</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-        <ul id="banners-nav" class="nav-content <?= ($sub_page == "banner.php") ? '' : 'collapse' ?> " data-bs-parent="#sidebar-nav">
+        <ul id="banners-nav" class="nav-content <?= ($sub_page == "banner") ? '' : 'collapse' ?> " data-bs-parent="#sidebar-nav">
           <li>
             <a href="add_banner.php">
               <i class="bi bi-circle"></i><span>Add Banner</span>
@@ -303,7 +303,27 @@ $after_assoc_user = mysqli_fetch_assoc($select_users_result);
             </a>
           </li>
         </ul>
-      </li><!-- End Components Nav -->
+      </li>
+      <!-- End banner Nav -->
+      <!-- banner navbar -->
+      <li class="nav-item">
+        <a class="nav-link <?= ($page == "abouts") ? '' : 'collapsed' ?>" data-bs-target="#about-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-file-person"></i><span>About Us</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="about-nav" class="nav-content <?= ($sub_page == "about") ? '' : 'collapse' ?> " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="add_about.php">
+              <i class="bi bi-circle"></i><span>Add About</span>
+            </a>
+          </li>
+          <li>
+            <a href="view_banner.php">
+              <i class="bi bi-circle"></i><span>View About</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <!-- End banner Nav -->
     </ul>
 
   </aside><!-- End Sidebar-->

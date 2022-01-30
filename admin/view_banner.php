@@ -1,6 +1,6 @@
 <?php 
 $page = "banners";
-$sub_page = "banner.php";
+$sub_page = "banner";
 require "database.php";
 require "admin_header.php";
 // fetch banners info in database
