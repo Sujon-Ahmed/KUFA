@@ -2,6 +2,7 @@
 session_start();
 require 'database.php';
 include 'flash_data.php';
+$author = $_SESSION['user_id'];
 $category = $_POST['portfolio_category'];
 $title = $_POST['portfolio_title'];
 $description = $_POST['description'];
@@ -20,7 +21,7 @@ if ($category != '' && $title != '' && $description != ''){
                     $file_new_name = uniqid('',true).'.'.$file_actual_extension;
                     $file_destination = "assets/uploads/portfolios/".$file_new_name;
                     if (move_uploaded_file($file_tmp, $file_destination)) {
-                        $insert_portfolio = "INSERT INTO `portfolios`(`portfolio_category`, `portfolio_title`, `portfolio_image`, `portfolio_description`) VALUES ('$category','$title','$file_new_name','$description')";
+                        $insert_portfolio = "INSERT INTO `portfolios`(`author_id`,`portfolio_category`, `portfolio_title`, `portfolio_image`, `portfolio_description`) VALUES ('$author','$category','$title','$file_new_name','$description')";
                         $insert_portfolio_result = mysqli_query($db_connection, $insert_portfolio);
                         Flash_data::success("Portfolio Insert Success");
                         header('location:add_portfolio.php');

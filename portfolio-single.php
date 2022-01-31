@@ -1,6 +1,12 @@
+<?php
+require "admin/database.php";
+$id = $_GET['id'];
+$select_portfolio = "SELECT * FROM portfolios as p INNER JOIN users as u ON p.author_id=u.user_id WHERE `portfolio_id`=$id";
+$portfolio_result = mysqli_query($db_connection, $select_portfolio);
+$after_assoc_portfolio = mysqli_fetch_assoc($portfolio_result);
+?>
 <!doctype html>
 <html class="no-js" lang="en">
-
 <!-- Mirrored from themebeyond.com/html/kufa/portfolio-single.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 06 Feb 2020 06:29:11 GMT -->
 <head>
         <meta charset="utf-8">
@@ -46,8 +52,8 @@
                         <div class="col-xl-12">
                             <div class="main-menu">
                                 <nav class="navbar navbar-expand-lg">
-                                    <a href="index.html" class="navbar-brand logo-sticky-none"><img src="img/logo/logo.png" alt="Logo"></a>
-                                    <a href="index.html" class="navbar-brand s-logo-none"><img src="img/logo/s_logo.png" alt="Logo"></a>
+                                    <a href="index.php" class="navbar-brand logo-sticky-none"><img src="img/logo/logo.png" alt="Logo"></a>
+                                    <a href="index.php" class="navbar-brand s-logo-none"><img src="img/logo/s_logo.png" alt="Logo"></a>
                                     <button class="navbar-toggler" type="button" data-toggle="collapse"
                                         data-target="#navbarNav">
                                         <span class="navbar-icon"></span>
@@ -135,43 +141,11 @@
                         <div class="col-xl-9 col-lg-10">
                             <div class="single-blog-list">
                                 <div class="blog-list-thumb mb-35">
-                                    <img src="img/images/portfolio_details.jpg" alt="img">
+                                    <img src="admin/assets/uploads/portfolios/<?= $after_assoc_portfolio['portfolio_image'] ?>" alt="img">
                                 </div>
                                 <div class="blog-list-content blog-details-content portfolio-details-content">
-                                    <h2>Consectetur neque elit quis nunc cras elementum</h2>
-                                    <p>Express dolor sit amet, consectetur adipiscing elit. Cras sollicitudin, tellus vitae condimem
-                                        egestliberos dolor auctor
-                                        tellus, eu consectetur neque elit quis nunc. Cras elementum pretiumi Nullam justo efficitur,
-                                        trist ligula pellentesque
-                                        ipsum. Quisque thsr augue ipsum, vehicula tellus maximus. Was popularised in the 1960s withs
-                                        the release of Letraset
-                                        sheets containing Lorem Ipsum passags, and more recently with desktop publishing software
-                                        like Aldus PageMaker including
-                                        versions.</p>
-                                    <p>Rxpress dolor sit amet, consectetur adipiscing elit. Cras sollicitudin, tellus vitae condimem
-                                        egestlibers dolosr auctor
-                                        tellus, eu consectetur neque elit quis nunc. Cras elementum pretiumi Nullam justo efficitur,
-                                        trist ligula pellentesque
-                                        ipsum. Quisque thsr augue ipsum, vehicula tellus maximus.</p>
-                                    <p>Vehicula dolor amet consectetur adipiscing elit. Cras sollicitudin, tellus vitae condimem egestliberos dolor auctor
-                                    tellus, eu consectetur neque elit quis nunc. Cras elementum pretiumi Nullam justo efficitur, trist ligula pellentesque
-                                    ipsum. Quisque thsr augue ipsum, vehicula tellus maximus.Express dolor sit amet, consectetur adipiscing elit. Cras
-                                    sollicitudin, tellus vitae condimem egestliberos dolor auctor tellus, eu consectetur neque elit quis nunc.</p>
-
-                                    <p>Express dolor sit amet, consectetur adipiscing elit. Cras sollicitudin, tellus vitae condimem
-                                        egestliberos dolor auctor
-                                        tellus, eu consectetur neque elit quis nunc. Cras elementum pretiumi Nullam justo efficitur,
-                                        trist ligula pellentesque
-                                        ipsum. Quisque thsr augue ipsum, vehicula tellus maximus. Was popularised in the 1960s withs
-                                        the release of Letraset
-                                        sheets containing Lorem Ipsum passags, and more recently with desktop publishing software
-                                        like Aldus PageMaker including
-                                        versions.</p>
-                                    <p>Vehicula dolor amet consectetur adipiscing elit. Cras sollicitudin, tellus vitae condimem
-                                        egestliberos dolor auctor
-                                        tellus, eu consectetur neque elit quis nunc. Cras elementum pretiumi Nullam justo efficitur,
-                                        trist ligula pellentesque
-                                        ipsum. Quisque thsr augue ipsum, vehicula tellus maximus.</p>
+                                    <h2><?= $after_assoc_portfolio['portfolio_title'] ?></h2>
+                                    <p><?= $after_assoc_portfolio['portfolio_description'] ?></p>
                                     <div class="blog-list-meta">
                                         <ul>
                                             <li class="blog-post-date">
@@ -189,14 +163,11 @@
                                     <ul>
                                         <li>
                                             <div class="post-avatar-img">
-                                                <img src="img/blog/post_avatar_img.png" alt="img">
+                                                <img src="admin/assets/uploads/users/<?= $after_assoc_portfolio['user_photo'] ?>" class="img-fluid" width="100" alt="img">
                                             </div>
                                             <div class="post-avatar-content">
-                                                <h5>Thomas Herlihy</h5>
-                                                <p>Vehicula dolor amet consectetur adipiscing elit. Cras sollicitudin, tellus vitae
-                                                    condimem
-                                                    egestliberos dolor auctor
-                                                    tellus.</p>
+                                                <h5><?= $after_assoc_portfolio['user_name'] ?></h5>
+                                                <p><?= $after_assoc_portfolio['user_about'] ?>.</p>
                                                 <div class="post-avatar-social mt-15">
                                                     <a href="#"><i class="fab fa-facebook-f"></i></a>
                                                     <a href="#"><i class="fab fa-twitter"></i></a>
@@ -205,6 +176,11 @@
                                             </div>
                                         </li>
                                     </ul>
+                                </div>
+                                <div class="card py-3 px-3">
+                                    <h5 class="text-dark">Comments Section</h5>
+                                    <hr>
+                                    <div class="fb-comments" data-href="https://developers.facebook.com/localhost/portfolio/portfolio-single.php?id=<?= $_GET['id'] ?>" data-width="100%" data-numposts="5"></div>
                                 </div>
                             </div>
                         </div>
@@ -251,6 +227,8 @@
         <script src="js/jquery.magnific-popup.min.js"></script>
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
+        <div id="fb-root"></div>
+        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v12.0" nonce="XsP9YUFX"></script>
     </body>
 
 <!-- Mirrored from themebeyond.com/html/kufa/portfolio-single.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 06 Feb 2020 06:29:14 GMT -->
