@@ -12,7 +12,10 @@ $after_assoc_about = mysqli_fetch_assoc($select_about_result);
 // about section skill query
 $select_skill = "SELECT * FROM `skills` WHERE `skill_status`=1";
 $skill_result = mysqli_query($db_connection, $select_skill);
-// $after_assoc_about = mysqli_fetch_assoc($select_about_result);
+
+// services section service query
+$select_services = "SELECT * FROM `services` WHERE `service_status`=1";
+$service_result = mysqli_query($db_connection, $select_services);
 
 ?>
 <!doctype html>
@@ -63,8 +66,8 @@ $skill_result = mysqli_query($db_connection, $select_skill);
                         <div class="col-xl-12">
                             <div class="main-menu">
                                 <nav class="navbar navbar-expand-lg">
-                                    <a href="index.html" class="navbar-brand logo-sticky-none"><img src="img/logo/logo.png" alt="Logo"></a>
-                                    <a href="index.html" class="navbar-brand s-logo-none"><img src="img/logo/s_logo.png" alt="Logo"></a>
+                                    <a href="index.php" class="navbar-brand logo-sticky-none"><img src="img/logo/logo.png" alt="Logo"></a>
+                                    <a href="index.php" class="navbar-brand s-logo-none"><img src="img/logo/s_logo.png" alt="Logo"></a>
                                     <button class="navbar-toggler" type="button" data-toggle="collapse"
                                         data-target="#navbarNav">
                                         <span class="navbar-icon"></span>
@@ -168,7 +171,7 @@ $skill_result = mysqli_query($db_connection, $select_skill);
                     <div class="row align-items-center">
                         <div class="col-lg-6">
                             <div class="about-img">
-                                <img src="admin/assets/uploads/abouts/<?= $after_assoc_about['about_image'] ?>" title="me-01" alt="me-01">
+                                <img src="admin/assets/uploads/abouts/<?= $after_assoc_about['about_image'] ?>" title="me-01" class="img-fluid" alt="me-01">
                             </div>
                         </div>
                         <div class="col-lg-6 pr-90">
@@ -214,60 +217,15 @@ $skill_result = mysqli_query($db_connection, $select_skill);
                         </div>
                     </div>
 					<div class="row">
+                        <?php foreach($service_result As $service){ ?>
 						<div class="col-lg-4 col-md-6">
 							<div class="icon_box_01 wow fadeInLeft" data-wow-delay="0.2s">
-                                <i class="fab fa-react"></i>
-								<h3>Creative Design</h3>
-								<p>
-									Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum indust.
-								</p>
+                                <i class="<?= $service['service_icon'] ?>"></i>
+								<h3><?= $service['service_title'] ?></h3>
+								<p><?= $service['service_description'] ?></p>
 							</div>
 						</div>
-						<div class="col-lg-4 col-md-6">
-							<div class="icon_box_01 wow fadeInLeft" data-wow-delay="0.4s">
-								<i class="fab fa-free-code-camp"></i>
-								<h3>Unlimited Features</h3>
-								<p>
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum indust.
-								</p>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-6">
-							<div class="icon_box_01 wow fadeInLeft" data-wow-delay="0.6s">
-                                <i class="fal fa-desktop"></i>
-								<h3>Ultra Responsive</h3>
-								<p>
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum indust.
-								</p>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-6">
-							<div class="icon_box_01 wow fadeInLeft" data-wow-delay="0.2s">
-                                <i class="fal fa-lightbulb-on"></i>
-								<h3>Creative Ideas</h3>
-								<p>
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum indust.
-								</p>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-6">
-							<div class="icon_box_01 wow fadeInLeft" data-wow-delay="0.4s">
-                                <i class="fal fa-edit"></i>
-								<h3>Easy Customization</h3>
-								<p>
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum indust.
-								</p>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-6">
-							<div class="icon_box_01 wow fadeInLeft" data-wow-delay="0.6s">
-                                <i class="fal fa-headset"></i>
-								<h3>Supper Support</h3>
-								<p>
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum indust.
-								</p>
-							</div>
-						</div>
+                        <?php } ?>
 					</div>
 				</div>
 			</section>

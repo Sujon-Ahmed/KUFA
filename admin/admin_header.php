@@ -25,6 +25,10 @@ $after_assoc_user = mysqli_fetch_assoc($select_users_result);
   <link href="https://fonts.gstatic.com" rel="preconnect">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
   <!-- Vendor CSS Files -->
+  <!-- fontAwesome 4 cdn link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <link rel="stylesheet" href="assets/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
@@ -40,6 +44,9 @@ $after_assoc_user = mysqli_fetch_assoc($select_users_result);
   <link rel="stylesheet" href="summernote/summernote-bs4.min.css">
   <!-- dataTable cdn link -->
   <link rel="stylesheet" href="dataTable/dataTables.bootstrap4.min.css">
+ 
+ 
+ 
 </head>
 <body>
   <!-- ======= Header ======= -->
@@ -334,6 +341,25 @@ $after_assoc_user = mysqli_fetch_assoc($select_users_result);
         </ul>
       </li>
       <!-- End banner Nav -->
+      <!-- service navbar -->
+      <li class="nav-item">
+        <a class="nav-link <?= ($page == "services") ? '' : 'collapsed' ?>" data-bs-target="#services-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-menu-button-wide"></i><span>Services</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="services-nav" class="nav-content <?= ($sub_page == "service") ? '' : 'collapse' ?> " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="add_service.php">
+              <i class="bi bi-circle"></i><span>Add Service</span>
+            </a>
+          </li>
+          <li>
+            <a href="view_services.php">
+              <i class="bi bi-circle"></i><span>View Services</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <!-- End service Nav -->
     </ul>
 
   </aside><!-- End Sidebar-->
