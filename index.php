@@ -27,6 +27,10 @@ $portfolio_heading = "SELECT * FROM `portfolio_heading` WHERE `portfolio_heading
 $heading_result = mysqli_query($db_connection, $portfolio_heading);
 $after_assoc_port_head = mysqli_fetch_assoc($heading_result);
 
+// services section service query
+$select_portfolios = "SELECT * FROM `portfolios` WHERE `portfolio_status`=1";
+$portfolio_result = mysqli_query($db_connection, $select_portfolios);
+
 
 ?>
 <!doctype html>
@@ -254,78 +258,20 @@ $after_assoc_port_head = mysqli_fetch_assoc($heading_result);
                         </div>
                     </div>
                     <div class="row">
+                        <?php foreach($portfolio_result as $portfolio){ ?>
                         <div class="col-lg-4 col-md-6 pitem">
                             <div class="speaker-box">
 								<div class="speaker-thumb">
-									<img src="img/images/1.jpg" alt="img">
+									<img src="admin/assets/uploads/portfolios/<?= $portfolio['portfolio_image'] ?>" alt="img">
 								</div>
 								<div class="speaker-overlay">
-									<span>Design</span>
-									<h4><a href="portfolio-single.html">Hamble Triangle</a></h4>
-									<a href="portfolio-single.php" class="arrow-btn">More information <span></span></a>
+									<span><?= $portfolio['portfolio_category'] ?></span>
+									<h4><a href="portfolio-single.php?id=<?= $portfolio['portfolio_id'] ?>"><?= $portfolio['portfolio_title'] ?></a></h4>
+									<a href="portfolio-single.php?id=<?= $portfolio['portfolio_id'] ?>" class="arrow-btn">More information <span></span></a>
 								</div>
 							</div>
                         </div>
-                        <div class="col-lg-4 col-md-6 pitem">
-                            <div class="speaker-box">
-								<div class="speaker-thumb">
-									<img src="img/images/2.jpg" alt="img">
-								</div>
-								<div class="speaker-overlay">
-									<span>Video</span>
-									<h4><a href="portfolio-single.html">Dark Beauty</a></h4>
-									<a href="portfolio-single.html" class="arrow-btn">More information <span></span></a>
-								</div>
-							</div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 pitem">
-                            <div class="speaker-box">
-								<div class="speaker-thumb">
-									<img src="img/images/3.jpg" alt="img">
-								</div>
-								<div class="speaker-overlay">
-									<span>Audio</span>
-									<h4><a href="portfolio-single.html">Gilroy Limbo.</a></h4>
-									<a href="portfolio-single.html" class="arrow-btn">More information <span></span></a>
-								</div>
-							</div>
-                        </div>
-						<div class="col-lg-4 col-md-6 pitem">
-                            <div class="speaker-box">
-								<div class="speaker-thumb">
-									<img src="img/images/4.jpg" alt="img">
-								</div>
-								<div class="speaker-overlay">
-									<span>Design</span>
-									<h4><a href="portfolio-single.html">Ipsum which</a></h4>
-									<a href="portfolio-single.html" class="arrow-btn">More information <span></span></a>
-								</div>
-							</div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 pitem">
-                            <div class="speaker-box">
-								<div class="speaker-thumb">
-									<img src="img/images/5.jpg" alt="img">
-								</div>
-								<div class="speaker-overlay">
-									<span>Creative</span>
-									<h4><a href="portfolio-single.html">Eiusmod tempor</a></h4>
-									<a href="portfolio-single.html" class="arrow-btn">More information <span></span></a>
-								</div>
-							</div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 pitem">
-                            <div class="speaker-box">
-								<div class="speaker-thumb">
-									<img src="img/images/6.jpg" alt="img">
-								</div>
-								<div class="speaker-overlay">
-									<span>UX/UI</span>
-									<h4><a href="portfolio-single.html">again there</a></h4>
-									<a href="portfolio-single.html" class="arrow-btn">More information <span></span></a>
-								</div>
-							</div>
-                        </div>
+                        <?php } ?>
                     </div>
                 </div>
             </section>

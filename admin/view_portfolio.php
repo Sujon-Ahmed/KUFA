@@ -53,9 +53,9 @@ $select_portfolio_result = mysqli_query($db_connection, $select_portfolios);
                             </td>
                             <td>
                                 <?php if ($portfolio['portfolio_status'] == 0){ ?>
-                                    <a href="about_status_change.php?id=<?= $portfolio['portfolio_id'] ?>" class="btn btn-secondary btn-sm">Deactive</a>
+                                    <a href="portfolio_status_change.php?id=<?= $portfolio['portfolio_id'] ?>" class="btn btn-secondary btn-sm">Deactive</a>
                                 <?php } else { ?>
-                                    <a href="about_status_change.php?id=<?= $portfolio['portfolio_id'] ?>" class="btn btn-primary btn-sm">active</a>
+                                    <a href="portfolio_status_change.php?id=<?= $portfolio['portfolio_id'] ?>" class="btn btn-primary btn-sm">active</a>
                                 <?php } ?>
                             </td>
                             <td>
