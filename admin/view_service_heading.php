@@ -4,8 +4,8 @@ $sub_page = "service";
 require "database.php";
 require "admin_header.php";
 // fetch banners info in database
-$select_services = "SELECT * FROM `services`";
-$select_services_result = mysqli_query($db_connection, $select_services);
+$select_service_heading = "SELECT * FROM `services_heading`";
+$select_service_heading_result = mysqli_query($db_connection, $select_service_heading);
 // $after_assoc_banners = mysqli_fetch_assoc($select_banners_result);
 ?>
 <main id="main" class="main">
@@ -15,7 +15,7 @@ $select_services_result = mysqli_query($db_connection, $select_services);
             <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="index.php">Home</a></li>
             <li class="breadcrumb-item">Services</li>
-            <li class="breadcrumb-item active">View-Services</li>
+            <li class="breadcrumb-item active">View-Service-Heading</li>
             </ol>
         </nav>
     </div><!-- End Page Title -->
@@ -26,30 +26,28 @@ $select_services_result = mysqli_query($db_connection, $select_services);
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Icon</th>
+                            <th>Sub Title</th>
                             <th>Title</th>
-                            <th>Description</th>
                             <th>Status</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach($select_services_result as $service){ ?>
+                        <?php foreach($select_service_heading_result as $heading){ ?>
                         <tr>
-                            <td><?= $service['service_id'] ?></td>
-                            <td><i class="<?= $service['service_icon'] ?>"></i></td>
-                            <td><?= $service['service_name'] ?></td>
-                            <td><?= $service['service_description'] ?></td>
+                            <td><?= $heading['service_heading_id'] ?></td>
+                            <td><?= $heading['service_heading_sub_title'] ?></td>
+                            <td><?= $heading['service_heading_title'] ?></td>
                             <td>
-                                <?php if ($service['service_status'] == 0){ ?>
-                                    <a href="service_status_change.php?service_id=<?= $service['service_id'] ?>" class="btn btn-secondary btn-sm">Deactive</a>
+                                <?php if ($heading['service_heading_status'] == 0){ ?>
+                                    <a href="ser_head_status_change.php?service_heading_id=<?= $heading['service_heading_id'] ?>" class="btn btn-secondary btn-sm">Deactive</a>
                                 <?php } else { ?>
-                                    <a href="service_status_change.php?service_id=<?= $service['service_id'] ?>" class="btn btn-primary btn-sm">active</a>
+                                    <a href="ser_head_status_change.php?service_heading_id=<?= $heading['service_heading_id'] ?>" class="btn btn-primary btn-sm">active</a>
                                 <?php } ?>
                             </td>
                             <td>
-                                <a title="Edit" href="edit_service.php?service_id=<?= $service['service_id'] ?>" class="btn btn-success btn-sm"><i class="bi bi-pencil-square"></i></a>
-                                <a title="Delete" onclick="javascript:return confirm('Are You Sure?')" href="delete_service.php?service_id=<?= $service['service_id'] ?>" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></a>
+                                <a title="Edit" href="edit_ser_heading.php?service_heading_id=<?= $heading['service_heading_id'] ?>" class="btn btn-success btn-sm"><i class="bi bi-pencil-square"></i></a>
+                                <a title="Delete" onclick="javascript:return confirm('Are You Sure?')" href="delete_skill.php?service_heading_id=<?= $heading['service_heading_id'] ?>" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></a>
                             </td>
                         </tr>
                         <?php } ?>

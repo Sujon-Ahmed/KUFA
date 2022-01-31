@@ -14,6 +14,11 @@ $select_skill = "SELECT * FROM `skills` WHERE `skill_status`=1";
 $skill_result = mysqli_query($db_connection, $select_skill);
 
 // services section service query
+$select_services_heading = "SELECT * FROM `services_heading` WHERE `service_heading_status`=1";
+$service_heading_result = mysqli_query($db_connection, $select_services_heading);
+$after_assoc_service_heading = mysqli_fetch_assoc($service_heading_result);
+
+// services section service query
 $select_services = "SELECT * FROM `services` WHERE `service_status`=1";
 $service_result = mysqli_query($db_connection, $select_services);
 
@@ -211,8 +216,8 @@ $service_result = mysqli_query($db_connection, $select_services);
                     <div class="row justify-content-center">
                         <div class="col-xl-6 col-lg-8">
                             <div class="section-title text-center mb-70">
-                                <span>WHAT WE DO</span>
-                                <h2>Services and Solutions</h2>
+                                <span><?= $after_assoc_service_heading['service_heading_sub_title'] ?></span>
+                                <h2><?= $after_assoc_service_heading['service_heading_title'] ?></h2>
                             </div>
                         </div>
                     </div>
@@ -221,7 +226,7 @@ $service_result = mysqli_query($db_connection, $select_services);
 						<div class="col-lg-4 col-md-6">
 							<div class="icon_box_01 wow fadeInLeft" data-wow-delay="0.2s">
                                 <i class="<?= $service['service_icon'] ?>"></i>
-								<h3><?= $service['service_title'] ?></h3>
+								<h3><?= $service['service_name'] ?></h3>
 								<p><?= $service['service_description'] ?></p>
 							</div>
 						</div>

@@ -357,6 +357,16 @@ $after_assoc_user = mysqli_fetch_assoc($select_users_result);
               <i class="bi bi-circle"></i><span>View Services</span>
             </a>
           </li>
+          <li>
+            <a href="add_service_heading.php">
+              <i class="bi bi-circle"></i><span>Add Heading</span>
+            </a>
+          </li>
+          <li>
+            <a href="view_service_heading.php">
+              <i class="bi bi-circle"></i><span>View Heading</span>
+            </a>
+          </li>
         </ul>
       </li>
       <!-- End service Nav -->
