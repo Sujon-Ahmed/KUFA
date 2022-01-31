@@ -392,8 +392,8 @@ $after_assoc_user = mysqli_fetch_assoc($select_users_result);
             </a>
           </li>
           <li>
-            <a href="view_skill.php">
-              <i class="bi bi-circle"></i><span>View Skill</span>
+            <a href="view_heading.php">
+              <i class="bi bi-circle"></i><span>View Heading</span>
             </a>
           </li>
         </ul>
