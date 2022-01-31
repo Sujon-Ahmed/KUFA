@@ -2,7 +2,7 @@
 session_start();
 require "database.php";
 include "flash_data.php";
-$service_heading_id = $_POST['service_heading_id'];
+$service_heading_id = $_POST['id'];
 $service_heading_sub_title = $_POST['sub_title'];
 $service_heading_title = $_POST['title'];
 if ($service_heading_sub_title != '' && $service_heading_title != '') {

@@ -22,6 +22,12 @@ $after_assoc_service_heading = mysqli_fetch_assoc($service_heading_result);
 $select_services = "SELECT * FROM `services` WHERE `service_status`=1";
 $service_result = mysqli_query($db_connection, $select_services);
 
+// portfolio heading section query
+$portfolio_heading = "SELECT * FROM `portfolio_heading` WHERE `portfolio_heading_status`=1";
+$heading_result = mysqli_query($db_connection, $portfolio_heading);
+$after_assoc_port_head = mysqli_fetch_assoc($heading_result);
+
+
 ?>
 <!doctype html>
 <html class="no-js" lang="en">
@@ -242,8 +248,8 @@ $service_result = mysqli_query($db_connection, $select_services);
                     <div class="row justify-content-center">
                         <div class="col-xl-6 col-lg-8">
                             <div class="section-title text-center mb-70">
-                                <span>Portfolio Showcase</span>
-                                <h2>My Recent Best Works</h2>
+                                <span><?= $after_assoc_port_head['portfolio_sub_heading'] ?></span>
+                                <h2><?= $after_assoc_port_head['portfolio_main_heading'] ?></h2>
                             </div>
                         </div>
                     </div>

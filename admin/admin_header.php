@@ -377,13 +377,13 @@ $after_assoc_user = mysqli_fetch_assoc($select_users_result);
         </a>
         <ul id="portfolio-nav" class="nav-content <?= ($sub_page == "portfolio") ? '' : 'collapse' ?> " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="add_about.php">
-              <i class="bi bi-circle"></i><span>Add About</span>
+            <a href="add_portfolio.php">
+              <i class="bi bi-circle"></i><span>Add Portfolio</span>
             </a>
           </li>
           <li>
-            <a href="view_about.php">
-              <i class="bi bi-circle"></i><span>View About</span>
+            <a href="view_portfolio.php">
+              <i class="bi bi-circle"></i><span>View Portfolio</span>
             </a>
           </li>
           <li>

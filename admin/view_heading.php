@@ -37,7 +37,7 @@ $select_headings_result = mysqli_query($db_connection, $select_headings);
                         <tr>
                             <td><?= $heading['portfolio_head_id'] ?></td>
                             <td><?= $heading['portfolio_sub_heading'] ?></td>
-                            <td><?= $heading['portfolio_sub_heading'] ?></td>
+                            <td><?= $heading['portfolio_main_heading'] ?></td>
                             <td>
                                 <?php if ($heading['portfolio_heading_status'] == 0){ ?>
                                     <a href="port_head_status_change.php?portfolio_head_id=<?= $heading['portfolio_head_id'] ?>" class="btn btn-secondary btn-sm">Deactive</a>

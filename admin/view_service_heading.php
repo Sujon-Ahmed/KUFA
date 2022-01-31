@@ -47,7 +47,7 @@ $select_service_heading_result = mysqli_query($db_connection, $select_service_he
                             </td>
                             <td>
                                 <a title="Edit" href="edit_ser_heading.php?service_heading_id=<?= $heading['service_heading_id'] ?>" class="btn btn-success btn-sm"><i class="bi bi-pencil-square"></i></a>
-                                <a title="Delete" onclick="javascript:return confirm('Are You Sure?')" href="delete_skill.php?service_heading_id=<?= $heading['service_heading_id'] ?>" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></a>
+                                <a title="Delete" onclick="javascript:return confirm('Are You Sure?')" href="delete_ser_heading.php?service_heading_id=<?= $heading['service_heading_id'] ?>" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></a>
                             </td>
                         </tr>
                         <?php } ?>
