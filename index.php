@@ -256,7 +256,7 @@ $service_result = mysqli_query($db_connection, $select_services);
 								<div class="speaker-overlay">
 									<span>Design</span>
 									<h4><a href="portfolio-single.html">Hamble Triangle</a></h4>
-									<a href="portfolio-single.html" class="arrow-btn">More information <span></span></a>
+									<a href="portfolio-single.php" class="arrow-btn">More information <span></span></a>
 								</div>
 							</div>
                         </div>

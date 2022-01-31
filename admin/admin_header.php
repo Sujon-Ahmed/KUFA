@@ -312,7 +312,7 @@ $after_assoc_user = mysqli_fetch_assoc($select_users_result);
         </ul>
       </li>
       <!-- End banner Nav -->
-      <!-- banner navbar -->
+      <!-- about navbar -->
       <li class="nav-item">
         <a class="nav-link <?= ($page == "abouts") ? '' : 'collapsed' ?>" data-bs-target="#about-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-file-person"></i><span>About Us</span><i class="bi bi-chevron-down ms-auto"></i>
@@ -340,11 +340,11 @@ $after_assoc_user = mysqli_fetch_assoc($select_users_result);
           </li>
         </ul>
       </li>
-      <!-- End banner Nav -->
+      <!-- End about Nav -->
       <!-- service navbar -->
       <li class="nav-item">
         <a class="nav-link <?= ($page == "services") ? '' : 'collapsed' ?>" data-bs-target="#services-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-menu-button-wide"></i><span>Services</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-card-checklist"></i><span>Services</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="services-nav" class="nav-content <?= ($sub_page == "service") ? '' : 'collapse' ?> " data-bs-parent="#sidebar-nav">
           <li>
@@ -370,6 +370,35 @@ $after_assoc_user = mysqli_fetch_assoc($select_users_result);
         </ul>
       </li>
       <!-- End service Nav -->
+      <!-- portfolio navbar -->
+      <li class="nav-item">
+        <a class="nav-link <?= ($page == "portfolios") ? '' : 'collapsed' ?>" data-bs-target="#portfolio-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-person-bounding-box"></i><span>Portfolio</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="portfolio-nav" class="nav-content <?= ($sub_page == "portfolio") ? '' : 'collapse' ?> " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="add_about.php">
+              <i class="bi bi-circle"></i><span>Add About</span>
+            </a>
+          </li>
+          <li>
+            <a href="view_about.php">
+              <i class="bi bi-circle"></i><span>View About</span>
+            </a>
+          </li>
+          <li>
+            <a href="add_heading.php">
+              <i class="bi bi-circle"></i><span>Add Heading</span>
+            </a>
+          </li>
+          <li>
+            <a href="view_skill.php">
+              <i class="bi bi-circle"></i><span>View Skill</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <!-- End portfolio Nav -->
     </ul>
 
   </aside><!-- End Sidebar-->
