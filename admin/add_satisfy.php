@@ -23,8 +23,8 @@ require "admin_header.php"
                         <form action="satisfy_post.php" method="POST">
                             <!-- icon felid -->
                             <div class="mt-2">
-                                <label for="icon" class="mb-1">Satisfy Icon <small><a target="_blank" href="https://www.flaticon.com/">Visit</a></small></label> 
-                                <input type="text" name="icon" id="icon" class="form-control" placeholder="flaticon-example">
+                                <label for="icon" class="mb-1">Satisfy Icon <small><a target="_blank" href="https://fontawesome.com/v5.15/icons?d=gallery&p=2">Visit</a></small></label> 
+                                <input type="text" name="icon" id="icon" class="form-control" >
                             </div>
                             <!-- Value felid -->
                             <div class="mt-2">

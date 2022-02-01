@@ -8,28 +8,26 @@ $after_assoc_banner = mysqli_fetch_assoc($select_banner_result);
 $select_about = "SELECT * FROM `abouts` WHERE `about_status`=1";
 $select_about_result = mysqli_query($db_connection, $select_about);
 $after_assoc_about = mysqli_fetch_assoc($select_about_result);
-
 // about section skill query
 $select_skill = "SELECT * FROM `skills` WHERE `skill_status`=1";
 $skill_result = mysqli_query($db_connection, $select_skill);
-
 // services section service query
 $select_services_heading = "SELECT * FROM `services_heading` WHERE `service_heading_status`=1";
 $service_heading_result = mysqli_query($db_connection, $select_services_heading);
 $after_assoc_service_heading = mysqli_fetch_assoc($service_heading_result);
-
 // services section service query
 $select_services = "SELECT * FROM `services` WHERE `service_status`=1";
 $service_result = mysqli_query($db_connection, $select_services);
-
 // portfolio heading section query
 $portfolio_heading = "SELECT * FROM `portfolio_heading` WHERE `portfolio_heading_status`=1";
 $heading_result = mysqli_query($db_connection, $portfolio_heading);
 $after_assoc_port_head = mysqli_fetch_assoc($heading_result);
-
 // services section service query
 $select_portfolios = "SELECT * FROM `portfolios` WHERE `portfolio_status`=1";
 $portfolio_result = mysqli_query($db_connection, $select_portfolios);
+// services section service query
+$select_satisfies = "SELECT * FROM `satisfies` WHERE `status`=1";
+$satisfy_result = mysqli_query($db_connection, $select_satisfies);
 
 
 ?>
@@ -283,50 +281,19 @@ $portfolio_result = mysqli_query($db_connection, $select_portfolios);
                 <div class="container">
                     <div class="fact-wrap">
                         <div class="row justify-content-between">
+                            <?php foreach($satisfy_result as $satisfy){ ?>
                             <div class="col-xl-2 col-lg-3 col-sm-6">
                                 <div class="fact-box text-center mb-50">
                                     <div class="fact-icon">
-                                        <i class="flaticon-award"></i>
+                                        <i class="<?= $satisfy['icon'] ?>"></i>
                                     </div>
                                     <div class="fact-content">
-                                        <h2><span class="count">245</span></h2>
-                                        <span>Feature Item</span>
+                                        <h2><span class="count"><?= $satisfy['value'] ?></span></h2>
+                                        <span><?= $satisfy['name'] ?></span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-2 col-lg-3 col-sm-6">
-                                <div class="fact-box text-center mb-50">
-                                    <div class="fact-icon">
-                                        <i class="flaticon-like"></i>
-                                    </div>
-                                    <div class="fact-content">
-                                        <h2><span class="count">345</span></h2>
-                                        <span>Active Products</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-2 col-lg-3 col-sm-6">
-                                <div class="fact-box text-center mb-50">
-                                    <div class="fact-icon">
-                                        <i class="flaticon-event"></i>
-                                    </div>
-                                    <div class="fact-content">
-                                        <h2><span class="count">39</span></h2>
-                                        <span>Year Experience</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-2 col-lg-3 col-sm-6">
-                                <div class="fact-box text-center mb-50">
-                                    <div class="fact-icon">
-                                        <i class="flaticon-woman"></i>
-                                    </div>
-                                    <div class="fact-content">
-                                        <h2><span class="count">3</span>k</h2>
-                                        <span>Our Clients</span>
-                                    </div>
-                                </div>
-                            </div>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>

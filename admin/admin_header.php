@@ -31,6 +31,7 @@ $after_assoc_user = mysqli_fetch_assoc($select_users_result);
   <link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/flaticon.css">
   <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
   <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet">
   <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
@@ -44,6 +45,7 @@ $after_assoc_user = mysqli_fetch_assoc($select_users_result);
   <link rel="stylesheet" href="summernote/summernote-bs4.min.css">
   <!-- dataTable cdn link -->
   <link rel="stylesheet" href="dataTable/dataTables.bootstrap4.min.css">
+  
  
  
  
