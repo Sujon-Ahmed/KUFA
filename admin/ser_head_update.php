@@ -12,6 +12,6 @@ if ($service_heading_sub_title != '' && $service_heading_title != '') {
     header('location:view_service_heading.php?service_heading_id='.$service_heading_id);
 } else {
     Flash_data::error("All Felid Are Required!");
-    header('location:view_service_heading.php?service_heading_id='.$service_heading_id);
+    header('location:edit_ser_heading.php?service_heading_id='.$service_heading_id);
 }
 ?>
