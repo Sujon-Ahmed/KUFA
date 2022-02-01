@@ -399,6 +399,25 @@ $after_assoc_user = mysqli_fetch_assoc($select_users_result);
         </ul>
       </li>
       <!-- End portfolio Nav -->
+      <!-- satisfy navbar -->
+      <li class="nav-item">
+        <a class="nav-link <?= ($page == "satisfied") ? '' : 'collapsed' ?>" data-bs-target="#satisfy-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-emoji-smile"></i><span>Satisfy</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="satisfy-nav" class="nav-content <?= ($sub_page == "satisfy") ? '' : 'collapse' ?> " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="add_satisfy.php">
+              <i class="bi bi-circle"></i><span>Add Satisfy</span>
+            </a>
+          </li>
+          <li>
+            <a href="view_satisfy.php">
+              <i class="bi bi-circle"></i><span>View Satisfy</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <!-- End satisfy Nav -->
     </ul>
 
   </aside><!-- End Sidebar-->
