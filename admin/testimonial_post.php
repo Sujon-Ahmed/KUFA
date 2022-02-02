@@ -20,7 +20,7 @@ if ($name != '' && $designation != '' && $description != ''){
                     $file_new_name = uniqid('',true).'.'.$file_actual_extension;
                     $file_destination = "assets/uploads/testimonials/".$file_new_name;
                     if (move_uploaded_file($file_tmp, $file_destination)) {
-                        $insert_testimonial = "INSERT INTO `testimonials`(`name`, `designation`, `image`, `quotes`) VALUES ('$name','$description','$file_new_name','$description')";
+                        $insert_testimonial = "INSERT INTO `testimonials`(`name`, `designation`, `image`, `quotes`) VALUES ('$name','$designation','$file_new_name','$description')";
                         $insert_testimonial_result = mysqli_query($db_connection, $insert_testimonial);
                         Flash_data::success("Testimonial Insert Success");
                         header('location:add_testimonial.php');

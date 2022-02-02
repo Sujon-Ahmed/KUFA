@@ -40,7 +40,7 @@ $heading_result = mysqli_query($db_connection, $select_headings);
                             <td><?= $heading['main_title'] ?></td>
                             <td>
                                 <?php if ($heading['testimonial_head_status'] == 0){ ?>
-                                    <a href="testimonial_status_change.php?id=<?= $heading['id'] ?>" class="btn btn-secondary btn-sm">Deactive</a>
+                                    <a href="testimonial_head_status_change.php?id=<?= $heading['id'] ?>" class="btn btn-secondary btn-sm">Deactive</a>
                                 <?php } else { ?>
                                     <a href="testimonial_status_change.php?id=<?= $heading['id'] ?>" class="btn btn-primary btn-sm">active</a>
                                 <?php } ?>
