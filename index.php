@@ -22,12 +22,16 @@ $service_result = mysqli_query($db_connection, $select_services);
 $portfolio_heading = "SELECT * FROM `portfolio_heading` WHERE `portfolio_heading_status`=1";
 $heading_result = mysqli_query($db_connection, $portfolio_heading);
 $after_assoc_port_head = mysqli_fetch_assoc($heading_result);
-// services section service query
+// services section query
 $select_portfolios = "SELECT * FROM `portfolios` WHERE `portfolio_status`=1";
 $portfolio_result = mysqli_query($db_connection, $select_portfolios);
-// services section service query
+// satisfies section query
 $select_satisfies = "SELECT * FROM `satisfies` WHERE `status`=1";
 $satisfy_result = mysqli_query($db_connection, $select_satisfies);
+// testimonial section query
+$testimonials_heading = "SELECT * FROM `testimonial_head` WHERE `testimonial_head_status`=1";
+$testimonial_head_result = mysqli_query($db_connection, $testimonials_heading);
+$after_assoc_testimonial_heading = mysqli_fetch_assoc($testimonial_head_result);
 
 
 ?>
@@ -306,8 +310,8 @@ $satisfy_result = mysqli_query($db_connection, $select_satisfies);
                     <div class="row justify-content-center">
                         <div class="col-xl-6 col-lg-8">
                             <div class="section-title text-center mb-70">
-                                <span>testimonial</span>
-                                <h2>happy customer quotes</h2>
+                                <span><?= $after_assoc_testimonial_heading['sub_title'] ?></span>
+                                <h2><?= $after_assoc_testimonial_heading['main_title'] ?></h2>
                             </div>
                         </div>
                     </div>

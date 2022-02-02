@@ -436,6 +436,16 @@ $after_assoc_user = mysqli_fetch_assoc($select_users_result);
               <i class="bi bi-circle"></i><span>View Heading</span>
             </a>
           </li>
+          <li>
+            <a href="add_testimonial.php">
+              <i class="bi bi-circle"></i><span>Add Testimonial</span>
+            </a>
+          </li>
+          <li>
+            <a href="view_testimonial.php">
+              <i class="bi bi-circle"></i><span>View Testimonial</span>
+            </a>
+          </li>
         </ul>
       </li>
       <!-- End testimonial Nav -->
