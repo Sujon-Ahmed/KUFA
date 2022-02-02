@@ -420,6 +420,25 @@ $after_assoc_user = mysqli_fetch_assoc($select_users_result);
         </ul>
       </li>
       <!-- End satisfy Nav -->
+      <!-- testimonial navbar -->
+      <li class="nav-item">
+        <a class="nav-link <?= ($page == "testimonials") ? '' : 'collapsed' ?>" data-bs-target="#testimonial-nav" data-bs-toggle="collapse" href="#">
+        <i class="bi bi-chat-left-dots-fill"></i><span>Testimonial</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="testimonial-nav" class="nav-content <?= ($sub_page == "testimonial") ? '' : 'collapse' ?> " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="add_testimonial_heading.php">
+              <i class="bi bi-circle"></i><span>Add Heading</span>
+            </a>
+          </li>
+          <li>
+            <a href="view_testimonial_heading.php">
+              <i class="bi bi-circle"></i><span>View Heading</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <!-- End testimonial Nav -->
     </ul>
 
   </aside><!-- End Sidebar-->
