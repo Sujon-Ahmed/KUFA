@@ -35,6 +35,9 @@ $after_assoc_testimonial_heading = mysqli_fetch_assoc($testimonial_head_result);
 // testimonial section query
 $select_testimonials = "SELECT * FROM `testimonials` WHERE `status`=1";
 $testimonial_result = mysqli_query($db_connection, $select_testimonials);
+// brands section query
+$select_brands = "SELECT * FROM `brands` WHERE `status`=1";
+$brands_result = mysqli_query($db_connection, $select_brands);
 
 ?>
 <!doctype html>
@@ -347,36 +350,13 @@ $testimonial_result = mysqli_query($db_connection, $select_testimonials);
             <div class="barnd-area pt-100 pb-100">
                 <div class="container">
                     <div class="row brand-active">
+                        <?php foreach($brands_result as $brand){ ?>
                         <div class="col-xl-2">
                             <div class="single-brand">
-                                <img src="img/brand/brand_img01.png" alt="img">
+                                <img src="admin/assets/uploads/brands/<?= $brand['image'] ?>" alt="img">
                             </div>
                         </div>
-                        <div class="col-xl-2">
-                            <div class="single-brand">
-                                <img src="img/brand/brand_img02.png" alt="img">
-                            </div>
-                        </div>
-                        <div class="col-xl-2">
-                            <div class="single-brand">
-                                <img src="img/brand/brand_img03.png" alt="img">
-                            </div>
-                        </div>
-                        <div class="col-xl-2">
-                            <div class="single-brand">
-                                <img src="img/brand/brand_img04.png" alt="img">
-                            </div>
-                        </div>
-                        <div class="col-xl-2">
-                            <div class="single-brand">
-                                <img src="img/brand/brand_img05.png" alt="img">
-                            </div>
-                        </div>
-                        <div class="col-xl-2">
-                            <div class="single-brand">
-                                <img src="img/brand/brand_img03.png" alt="img">
-                            </div>
-                        </div>
+                        <?php } ?>
                     </div>
                 </div>
             </div>

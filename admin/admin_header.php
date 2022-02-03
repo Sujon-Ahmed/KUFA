@@ -461,7 +461,7 @@ $after_assoc_user = mysqli_fetch_assoc($select_users_result);
             </a>
           </li>
           <li>
-            <a href="view_banner.php">
+            <a href="view_brands.php">
               <i class="bi bi-circle"></i><span>View Brands</span>
             </a>
           </li>
