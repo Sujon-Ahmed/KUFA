@@ -449,6 +449,25 @@ $after_assoc_user = mysqli_fetch_assoc($select_users_result);
         </ul>
       </li>
       <!-- End testimonial Nav -->
+      <!-- banner navbar -->
+      <li class="nav-item">
+        <a class="nav-link <?= ($page == "brands") ? '' : 'collapsed' ?>" data-bs-target="#brands-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-menu-button-wide"></i><span>Brands</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="brands-nav" class="nav-content <?= ($sub_page == "brand") ? '' : 'collapse' ?> " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="add_brand.php">
+              <i class="bi bi-circle"></i><span>Add Brand</span>
+            </a>
+          </li>
+          <li>
+            <a href="view_banner.php">
+              <i class="bi bi-circle"></i><span>View Brands</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <!-- End banner Nav -->
     </ul>
 
   </aside><!-- End Sidebar-->
