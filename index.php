@@ -1,5 +1,7 @@
 <?php
+session_start();
 require "admin/database.php";
+include "flash_data.php";
 // banner section information query
 $select_banner = "SELECT * FROM `banners` WHERE `banner_status`=1";
 $select_banner_result = mysqli_query($db_connection, $select_banner);
@@ -38,6 +40,8 @@ $testimonial_result = mysqli_query($db_connection, $select_testimonials);
 // brands section query
 $select_brands = "SELECT * FROM `brands` WHERE `status`=1";
 $brands_result = mysqli_query($db_connection, $select_brands);
+// user information get
+
 
 ?>
 <!doctype html>
@@ -65,6 +69,7 @@ $brands_result = mysqli_query($db_connection, $select_brands);
         <link rel="stylesheet" href="css/default.css">
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/responsive.css">
+        <link rel="stylesheet" href="css/toastr.css">
     </head>
     <body class="theme-bg">
 
@@ -373,7 +378,7 @@ $brands_result = mysqli_query($db_connection, $select_brands);
                             </div>
                             <div class="contact-content">
                                 <p>Event definition is - somthing that happens occurre How evesnt sentence. Synonym when an unknown printer took a galley.</p>
-                                <h5>OFFICE IN <span>NEW YORK</span></h5>
+                                <h5>OFFICE IN <span>Dhaka</span></h5>
                                 <div class="contact-list">
                                     <ul>
                                         <li><i class="fas fa-map-marker"></i><span>Address :</span>Event Center park WT 22 New York</li>
@@ -385,11 +390,11 @@ $brands_result = mysqli_query($db_connection, $select_brands);
                         </div>
                         <div class="col-lg-6">
                             <div class="contact-form">
-                                <form action="#">
-                                    <input type="text" placeholder="your name *">
-                                    <input type="email" placeholder="your email *">
+                                <form action="admin/message_post.php" method="POST">
+                                    <input type="text" name="name" placeholder="your name *">
+                                    <input type="email" name="email" placeholder="your email *">
                                     <textarea name="message" id="message" placeholder="your message *"></textarea>
-                                    <button class="btn">BUY TICKET</button>
+                                    <button type="submit" class="btn">BUY TICKET</button>
                                 </form>
                             </div>
                         </div>
@@ -422,6 +427,7 @@ $brands_result = mysqli_query($db_connection, $select_brands);
 
 
 		<!-- JS here -->
+        <script src="js/jquery.js"></script>
         <script src="js/vendor/jquery-1.12.4.min.js"></script>
         <script src="js/popper.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
@@ -438,6 +444,18 @@ $brands_result = mysqli_query($db_connection, $select_brands);
         <script src="js/jquery.magnific-popup.min.js"></script>
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
+        <script src="js/toastr.min.js"></script>
+         <!-- toastr message -->
+        <?php if (isset($_SESSION['msg']['success'])) { ?>
+            <script>
+                toastr.success("<?= Flash_data::show_error() ?>");
+            </script>
+        <?php } ?>
+        <?php if (isset($_SESSION['msg']['error'])) { ?>
+            <script>
+                toastr.error("<?= Flash_data::show_error() ?>");
+            </script>
+        <?php } ?>
     </body>
 
 <!-- Mirrored from themebeyond.com/html/kufa/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 06 Feb 2020 06:28:17 GMT -->
