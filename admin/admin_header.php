@@ -471,7 +471,7 @@ $after_assoc_user = mysqli_fetch_assoc($select_users_result);
       <!-- message navbar -->
       <li class="nav-item">
         <a class="nav-link <?= ($page == "messages") ? '' : 'collapsed' ?>" data-bs-target="#messages-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-menu-button-wide"></i><span>Messages</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-envelope-fill"></i><span>Messages</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="messages-nav" class="nav-content <?= ($sub_page == "message") ? '' : 'collapse' ?> " data-bs-parent="#sidebar-nav">
           <li>
