@@ -42,7 +42,7 @@ $result = mysqli_query($db_connection, $select_messages);
                             <td><?= $message['message'] ?></td>
                             <td><?= date('m-d-y h:i A',strtotime($message['time'])) ?></td>
                             <td>
-                                <a href="delete_message.php?id=<?= $message['id'] ?>" class="btn btn-danger btn-sm">Delete</a>
+                                <a onclick="javascript:return confirm('Are You Sure?')" href="delete_message.php?id=<?= $message['id'] ?>" class="btn btn-danger btn-sm">Delete</a>
                             </td>
                         </tr>
                         <?php } ?>
