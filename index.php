@@ -41,7 +41,10 @@ $testimonial_result = mysqli_query($db_connection, $select_testimonials);
 $select_brands = "SELECT * FROM `brands` WHERE `status`=1";
 $brands_result = mysqli_query($db_connection, $select_brands);
 // user information get
-
+$user_id = $_SESSION['user_id'];
+$select_users = "SELECT * FROM `users` WHERE `user_id` = '$user_id'";
+$select_users_result = mysqli_query($db_connection, $select_users);
+$after_assoc_user = mysqli_fetch_assoc($select_users_result);
 
 ?>
 <!doctype html>
@@ -381,9 +384,9 @@ $brands_result = mysqli_query($db_connection, $select_brands);
                                 <h5>OFFICE IN <span>Dhaka</span></h5>
                                 <div class="contact-list">
                                     <ul>
-                                        <li><i class="fas fa-map-marker"></i><span>Address :</span>Event Center park WT 22 New York</li>
-                                        <li><i class="fas fa-headphones"></i><span>Phone :</span>+9 125 645 8654</li>
-                                        <li><i class="fas fa-globe-asia"></i><span>e-mail :</span>info@exemple.com</li>
+                                        <li><i class="fas fa-map-marker"></i><span>Address :</span><?= $after_assoc_user['user_address'] ?></li>
+                                        <li><i class="fas fa-headphones"></i><span>Phone :</span><?= $after_assoc_user['user_phone'] ?></li>
+                                        <li><i class="fas fa-globe-asia"></i><span>e-mail :</span><?= $after_assoc_user['user_email'] ?></li>
                                     </ul>
                                 </div>
                             </div>
