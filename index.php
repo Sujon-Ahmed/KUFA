@@ -41,8 +41,8 @@ $testimonial_result = mysqli_query($db_connection, $select_testimonials);
 $select_brands = "SELECT * FROM `brands` WHERE `status`=1";
 $brands_result = mysqli_query($db_connection, $select_brands);
 // user information get
-$user_id = $_SESSION['user_id'];
-$select_users = "SELECT * FROM `users` WHERE `user_id` = '$user_id'";
+// $user_id = "SELECT * FROM `users` WHERE `user_id`";
+$select_users = "SELECT * FROM `users` WHERE `status` = 1";
 $select_users_result = mysqli_query($db_connection, $select_users);
 $after_assoc_user = mysqli_fetch_assoc($select_users_result);
 

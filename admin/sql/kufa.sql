@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 06, 2022 at 02:51 PM
+-- Generation Time: Feb 17, 2022 at 08:25 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `neon`
+-- Database: `kufa`
 --
 
 -- --------------------------------------------------------
@@ -322,15 +322,17 @@ CREATE TABLE `users` (
   `user_job` varchar(50) NOT NULL,
   `user_address` varchar(255) NOT NULL,
   `user_country` varchar(50) NOT NULL,
-  `user_company` varchar(100) NOT NULL
+  `user_company` varchar(100) NOT NULL,
+  `status` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_id`, `user_name`, `user_about`, `user_phone`, `user_email`, `user_password`, `user_photo`, `user_job`, `user_address`, `user_country`, `user_company`) VALUES
-(9, 'Sujon Ahmed', 'Hi, I am Sujon Ahmed a Full Stack Developer', '01743405982', 'sujonahmed@gmail.com', '$2y$10$PGwe8PpcSJSX708XCBL0vOhEvee3z904ZofajlEj8y5CH2D7m.4Tq', '61f7c0c0be1372.16180587.jpg', 'Web Developer', 'Manikganj', 'Bangladesh', 'Creative It Institute');
+INSERT INTO `users` (`user_id`, `user_name`, `user_about`, `user_phone`, `user_email`, `user_password`, `user_photo`, `user_job`, `user_address`, `user_country`, `user_company`, `status`) VALUES
+(9, 'Sujon Ahmed', 'Hi, I am Sujon Ahmed a Full Stack Developer', '01743405982', 'sujonahmed@gmail.com', '$2y$10$PGwe8PpcSJSX708XCBL0vOhEvee3z904ZofajlEj8y5CH2D7m.4Tq', '61f7c0c0be1372.16180587.jpg', 'Web Developer', 'Manikganj', 'Bangladesh', 'Creative It Institute', 1),
+(31, 'Sara Wilsson', 'Hi, I am Sara a good Web Designer', '456-78-256', 'sara@gmail.com', '$2y$10$VMa2ZKqn29BOsLE/dONKSepR9iymtPjb2fEICUCvV8RkYVtJDkwxm', '620ea0b1a397b9.38683632.jpg', 'Web Designer', 'California', 'USA', 'CIT', 0);
 
 --
 -- Indexes for dumped tables
@@ -494,7 +496,7 @@ ALTER TABLE `testimonial_head`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -295,6 +295,20 @@ $after_assoc_user = mysqli_fetch_assoc($select_users_result);
           <span>Dashboard</span>
         </a>
       </li><!-- End Dashboard Nav -->
+      <!-- user navbar -->
+      <li class="nav-item">
+        <a class="nav-link <?= ($page == "users") ? '' : 'collapsed' ?>" data-bs-target="#users-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-people"></i><span>Users</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="users-nav" class="nav-content <?= ($sub_page == "user") ? '' : 'collapse' ?> " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="view_users.php">
+              <i class="bi bi-circle"></i><span>View Users</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <!-- End user Nav -->
       <!-- banner navbar -->
       <li class="nav-item">
         <a class="nav-link <?= ($page == "banners") ? '' : 'collapsed' ?>" data-bs-target="#banners-nav" data-bs-toggle="collapse" href="#">
