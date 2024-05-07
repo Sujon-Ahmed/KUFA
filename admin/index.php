@@ -1,9 +1,34 @@
-<?php 
+<?php
 $page = "dashboard";
+require "database.php";
 require "admin_header.php";
 if (!isset($_SESSION['user_id'])) {
   header('location:login.php');
 }
+
+$user_id = $_SESSION['user_id'];
+// TODO: user skills 
+$sql = "SELECT COUNT(*) AS total_skills FROM `skills` WHERE `user_id` = $user_id";
+$result  = mysqli_query($db_connection, $sql);
+$row = mysqli_fetch_assoc($result);
+$skills = $row['total_skills'];
+mysqli_free_result($result);
+
+// TODO: user services
+$sql = "SELECT COUNT(*) AS total_services FROM `services` WHERE `user_id` = $user_id";
+$result  = mysqli_query($db_connection, $sql);
+$row = mysqli_fetch_assoc($result);
+$services = $row['total_services'];
+mysqli_free_result($result);
+
+// TODO: user portfolios
+$sql = "SELECT COUNT(*) AS total_portfolios FROM `portfolios` WHERE `user_id` = $user_id";
+$result  = mysqli_query($db_connection, $sql);
+$row = mysqli_fetch_assoc($result);
+$portfolios = $row['total_portfolios'];
+mysqli_free_result($result);
+
+
 ?>
 <main id="main" class="main">
   <div class="pagetitle">
@@ -20,94 +45,57 @@ if (!isset($_SESSION['user_id'])) {
       <!-- Left side columns -->
       <div class="col-lg-12">
         <div class="row">
-          <!-- Sales Card -->
+          <!-- Total Skills -->
           <div class="col-lg-4 col-md-6">
-            <div class="card info-card sales-card">
-              <div class="filter">
-                <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                  <li class="dropdown-header text-start">
-                    <h6>Filter</h6>
-                  </li>
-                  <li><a class="dropdown-item" href="#">Today</a></li>
-                  <li><a class="dropdown-item" href="#">This Month</a></li>
-                  <li><a class="dropdown-item" href="#">This Year</a></li>
-                </ul>
+            <div class="card info-card">
+              <div class="card-body p-3">
+                <div class="d-flex align-items-center">
+                  <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                    <i class="bi bi-tools"></i>
+                  </div>
+                  <div class="ps-3">
+                    <h6><?= $skills ?></h6>
+                    <span class="text-success small pt-1 fw-bold">Total Skills</span>
+                  </div>
+                </div>
               </div>
-              <div class="card-body">
-                <h5 class="card-title">Sales <span>| Today</span></h5>
+            </div>
+          </div>
+
+          <!-- Total Services -->
+          <div class="col-lg-4 col-md-6">
+            <div class="card info-card">
+              <div class="card-body p-3">
                 <div class="d-flex align-items-center">
                   <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                     <i class="bi bi-cart"></i>
                   </div>
                   <div class="ps-3">
-                    <h6>145</h6>
-                    <span class="text-success small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">increase</span>
+                    <h6><?= $services ?></h6>
+                    <span class="text-success small pt-1 fw-bold">Total Services</span>
                   </div>
                 </div>
               </div>
-
             </div>
-          </div><!-- End Sales Card -->
-          <!-- Revenue Card -->
-          <div class="col-lg-4 col-md-6">
-            <div class="card info-card revenue-card">
-              <div class="filter">
-                <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                  <li class="dropdown-header text-start">
-                    <h6>Filter</h6>
-                  </li>
-                  <li><a class="dropdown-item" href="#">Today</a></li>
-                  <li><a class="dropdown-item" href="#">This Month</a></li>
-                  <li><a class="dropdown-item" href="#">This Year</a></li>
-                </ul>
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Revenue <span>| This Month</span></h5>
+          </div>
 
+          <!-- Total Portfolio -->
+          <div class="col-lg-4 col-md-6">
+            <div class="card info-card">
+              <div class="card-body p-3">
                 <div class="d-flex align-items-center">
                   <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                    <i class="bi bi-currency-dollar"></i>
+                    <i class="bi bi-cart"></i>
                   </div>
                   <div class="ps-3">
-                    <h6>$3,264</h6>
-                    <span class="text-success small pt-1 fw-bold">8%</span> <span class="text-muted small pt-2 ps-1">increase</span>
+                    <h6><?= $portfolios ?></h6>
+                    <span class="text-success small pt-1 fw-bold">Total Portfoilo</span>
                   </div>
                 </div>
               </div>
             </div>
-          </div><!-- End Revenue Card -->
+          </div>
 
-          <!-- Revenue Card -->
-          <div class="col-lg-4 col-md-6">
-            <div class="card info-card revenue-card">
-              <div class="filter">
-                <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                  <li class="dropdown-header text-start">
-                    <h6>Filter</h6>
-                  </li>
-                  <li><a class="dropdown-item" href="#">Today</a></li>
-                  <li><a class="dropdown-item" href="#">This Month</a></li>
-                  <li><a class="dropdown-item" href="#">This Year</a></li>
-                </ul>
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Revenue <span>| This Month</span></h5>
-                <div class="d-flex align-items-center">
-                  <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                    <i class="bi bi-currency-dollar"></i>
-                  </div>
-                  <div class="ps-3">
-                    <h6>$3,264</h6>
-                    <span class="text-success small pt-1 fw-bold">8%</span> <span class="text-muted small pt-2 ps-1">increase</span>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-          </div><!-- End Revenue Card -->
         </div>
       </div>
     </div>

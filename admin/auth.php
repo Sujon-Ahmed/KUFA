@@ -5,10 +5,12 @@ include 'flash_data.php';
 // assign variables
 $email = $_POST['email'];
 $password = $_POST['password'];
+
 // email retrieves
 $select_email = "SELECT COUNT(*) AS `email_retrieves`, `user_id`, `user_name` FROM `users` WHERE `user_email` = '$email'";
 $select_email_result = mysqli_query($db_connection, $select_email);
 $after_assoc_email_retrieves = mysqli_fetch_assoc($select_email_result);
+
 // check email retrieves true or false
 if ($after_assoc_email_retrieves['email_retrieves'] == 1) {
     $select_db_email = "SELECT * FROM `users` WHERE `user_email` = '$email'";
